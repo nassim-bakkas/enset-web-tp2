@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ex4 — CSS Grid</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header a {
+      color: #7c83ff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    header a:hover { text-decoration: underline; }
+    header h1 { font-size: 1.2rem; }
+
+    main {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    section {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      color: #1a1a2e;
+      border-left: 4px solid #1a1a2e;
+      padding-left: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      color: #333;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    p { color: #444; font-size: 0.92rem; margin-bottom: 0.6rem; }
+
+    pre {
+      background: #1a1a2e;
+      color: #c8d0ff;
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 0.8rem 0;
+      line-height: 1.6;
+    }
+
+    .answer {
+      background: #f0f1fa;
+      border-left: 3px solid #7c83ff;
+      padding: 0.8rem 1rem;
+      margin: 0.5rem 0;
+      font-size: 0.88rem;
+    }
+
+    .answer code {
+      background: #dde0f0;
+      padding: 0.1rem 0.3rem;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    /* Grille de cartes responsive */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    /* Layout complet avec grid-areas */
+    .page-layout {
+      display: grid;
+      grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 250px 1fr;
+      gap: 1rem;
+      min-height: 80vh;
+    }
+
+    .header   { grid-area: header; background: #1a1a2e; color: white; padding: 1.5rem; }
+    .sidebar  { grid-area: sidebar; background: #f0f1fa; padding: 1.5rem; }
+    .main     { grid-area: main;     background: white; padding: 1.5rem; }
+    .footer   { grid-area: footer;   background: #1a1a2e; color: white; padding: 1.5rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← Retour</a>
+    <h1>Exercice 4 — CSS Grid</h1>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>4.1 Grille de cartes responsive</h2>
+      <p>Créez une grille de cartes qui s'adapte automatiquement au nombre de colonnes :</p>
+      
+      <pre>&lt;div class="grid-cards"&gt;
+  &lt;div class="card"&gt;Carte 1&lt;/div&gt;
+  &lt;div class="card"&gt;Carte 2&lt;/div&gt;
+  &lt;div class="card"&gt;Carte 3&lt;/div&gt;
+  &lt;div class="card"&gt;Carte 4&lt;/div&gt;
+  &lt;div class="card"&gt;Carte 5&lt;/div&gt;
+  &lt;div class="card"&gt;Carte 6&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      <div class="grid-cards">
+        <div class="card">Carte 1</div>
+        <div class="card">Carte 2</div>
+        <div class="card">Carte 3</div>
+        <div class="card">Carte 4</div>
+        <div class="card">Carte 5</div>
+        <div class="card">Carte 6</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4.2 Layout complet avec Grid Areas</h2>
+      <p>Créez une mise en page complète : header, sidebar, main, footer.</p>
+      
+      <pre>&lt;div class="page-layout"&gt;
+  &lt;header class="header"&gt;Header&lt;/header&gt;
+  &lt;nav class="sidebar"&gt;Sidebar&lt;/nav&gt;
+  &lt;main class="main"&gt;Contenu principal&lt;/main&gt;
+  &lt;footer class="footer"&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;</pre>
+
+      <div class="page-layout">
+        <header class="header">Header</header>
+        <nav class="sidebar">Sidebar</nav>
+        <main class="main">Contenu principal</main>
+        <footer class="footer">Footer</footer>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
