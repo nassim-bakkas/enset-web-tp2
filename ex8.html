@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ex8 — Quiz de révision</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header a {
+      color: #7c83ff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    header a:hover { text-decoration: underline; }
+    header h1 { font-size: 1.2rem; }
+
+    main {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    section {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      color: #1a1a2e;
+      border-left: 4px solid #1a1a2e;
+      padding-left: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .question {
+      margin-bottom: 1.5rem;
+    }
+
+    .options {
+      margin-top: 0.8rem;
+    }
+
+    .option {
+      padding: 8px 12px;
+      margin: 6px 0;
+      background: #f8f9fa;
+      border-left: 3px solid #7c83ff;
+    }
+
+    .correct {
+      background: #e8f5e9;
+      border-left: 3px solid #4caf50;
+      font-weight: bold;
+    }
+
+    .correct::after {
+      content: " ✓";
+      color: #4caf50;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← Retour</a>
+    <h1>Exercice 8 — Quiz de révision</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Quiz de révision</h2>
+      
+      <div class="question">
+        <p><strong>1. Quel sélecteur a la spécificité la plus haute ?</strong></p>
+        <div class="options">
+          <div class="option">a) .header .nav a</div>
+          <div class="option correct">b) #header a</div>
+          <div class="option">c) header nav a</div>
+          <div class="option">d) a.active</div>
+        </div>
+      </div>
+
+      <div class="question">
+        <p><strong>2. Avec box-sizing: border-box, un élément avec width: 200px et padding: 20px a une largeur totale de :</strong></p>
+        <div class="options">
+          <div class="option">a) 240px</div>
+          <div class="option correct">b) 200px</div>
+          <div class="option">c) 220px</div>
+          <div class="option">d) 160px</div>
+        </div>
+      </div>
+
+      <div class="question">
+        <p><strong>3. Pour centrer un élément verticalement et horizontalement avec Flexbox :</strong></p>
+        <div class="options">
+          <div class="option">a) justify-content: center</div>
+          <div class="option">b) align-items: center</div>
+          <div class="option correct">c) justify-content: center ET align-items: center</div>
+          <div class="option">d) text-align: center</div>
+        </div>
+      </div>
+
+      <div class="question">
+        <p><strong>4. La valeur 1fr en CSS Grid signifie :</strong></p>
+        <div class="options">
+          <div class="option">a) 1 pixel</div>
+          <div class="option correct">b) 1 fraction de l'espace disponible</div>
+          <div class="option">c) 1 pourcentage</div>
+          <div class="option">d) 1 rem</div>
+        </div>
+      </div>
+
+      <div class="question">
+        <p><strong>5. L'approche "Mobile First" utilise :</strong></p>
+        <div class="options">
+          <div class="option">a) max-width dans les media queries</div>
+          <div class="option correct">b) min-width dans les media queries</div>
+          <div class="option">c) device-width</div>
+          <div class="option">d) orientation</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
