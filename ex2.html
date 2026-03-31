@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ex2 — Box Model</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header a {
+      color: #7c83ff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    header a:hover { text-decoration: underline; }
+    header h1 { font-size: 1.2rem; }
+
+    main {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    section {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      color: #1a1a2e;
+      border-left: 4px solid #1a1a2e;
+      padding-left: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      color: #333;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    p { color: #444; font-size: 0.92rem; margin-bottom: 0.6rem; }
+
+    pre {
+      background: #1a1a2e;
+      color: #c8d0ff;
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 0.8rem 0;
+      line-height: 1.6;
+    }
+
+    .answer {
+      background: #f0f1fa;
+      border-left: 3px solid #7c83ff;
+      padding: 0.8rem 1rem;
+      margin: 0.5rem 0;
+      font-size: 0.88rem;
+    }
+
+    .answer code {
+      background: #dde0f0;
+      padding: 0.1rem 0.3rem;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← Retour</a>
+    <h1>Exercice 2 — Box Model</h1>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>2.1 Comprendre le Box Model</h2>
+      
+      <pre>.box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #333;
+  margin: 15px;
+}</pre>
+
+      <h3>Questions :</h3>
+      
+      <p>1. Avec <code>box-sizing: content-box</code> (défaut), quelle est la largeur totale visible de <code>.box</code> ?</p>
+      <div class="answer">
+        Largeur totale = <strong>300 + 20×2 + 5×2 = 350px</strong>
+      </div>
+
+      <p>2. Avec <code>box-sizing: border-box</code>, quelle est la largeur totale visible ?</p>
+      <div class="answer">
+        Largeur totale = <strong>300px</strong> (le padding et la bordure sont inclus dans les 300px)
+      </div>
+
+      <p>3. Écrivez le reset CSS universel pour <code>box-sizing</code></p>
+      <div class="answer">
+        <pre>* {
+  box-sizing: border-box;
+}</pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>2.2 Centrer un élément</h2>
+      
+      <p>Centrez horizontalement un élément <code>&lt;div&gt;</code> de 600px de large, puis centrez-le aussi verticalement dans la page.</p>
+      
+      <div class="answer">
+        <strong>Solution horizontale :</strong><br>
+        <code>margin: 0 auto;</code> + <code>width: 600px;</code>
+      </div>
+
+      <div class="answer">
+        <strong>Solution verticale + horizontale (Flexbox) :</strong><br>
+        <pre>body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}</pre>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
