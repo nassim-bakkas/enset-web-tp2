@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ex1 — Sélecteurs et spécificité</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header a {
+      color: #7c83ff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    header a:hover { text-decoration: underline; }
+    header h1 { font-size: 1.2rem; }
+
+    main {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    section {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      color: #1a1a2e;
+      border-left: 4px solid #1a1a2e;
+      padding-left: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      color: #333;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    p { color: #444; font-size: 0.92rem; margin-bottom: 0.6rem; }
+
+    pre {
+      background: #1a1a2e;
+      color: #c8d0ff;
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 0.8rem 0;
+      line-height: 1.6;
+    }
+
+    .answer {
+      background: #f0f1fa;
+      border-left: 3px solid #7c83ff;
+      padding: 0.8rem 1rem;
+      margin: 0.5rem 0;
+      font-size: 0.88rem;
+    }
+
+    .answer code {
+      background: #dde0f0;
+      padding: 0.1rem 0.3rem;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    .main-nav ul li a {
+      color: #1a1a2e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .main-nav ul li a.active {
+      color: #fff;
+      background: #7c83ff;
+      padding: 0.2rem 0.6rem;
+    }
+
+    article.post.featured {
+      border: 2px solid #7c83ff;
+      background: #f0f1fa;
+      padding: 1rem;
+    }
+
+    article.post p:first-of-type {
+      font-style: italic;
+      color: #555;
+    }
+
+    .main-nav ul li:nth-child(even) {
+      background: #eef0f8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 0.8rem;
+    }
+
+    thead { background: #1a1a2e; color: #fff; }
+    thead th { padding: 0.6rem 0.8rem; text-align: left; font-weight: normal; }
+    tbody td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #eee; }
+    tbody tr:nth-child(even) { background: #f0f1fa; }
+    td code { font-family: monospace; background: #dde0f0; padding: 0.1rem 0.3rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← Retour</a>
+    <h1>Exercice 1 — Sélecteurs et spécificité</h1>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>1.1 — Sélecteurs CSS</h2>
+      <p>HTML de référence :</p>
+      <pre>&lt;nav class="main-nav"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="/" class="active"&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/about"&gt;À propos&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;main&gt;
+  &lt;article class="post featured"&gt;
+    &lt;h2&gt;Premier article&lt;/h2&gt;
+    &lt;p&gt;Contenu...&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article class="post"&gt;
+    &lt;h2&gt;Deuxième article&lt;/h2&gt;
+    &lt;p&gt;Contenu...&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</pre>
+
+      <h3>Q1 — Tous les liens dans la navigation</h3>
+      <div class="answer"><code>.main-nav ul li a</code></div>
+
+      <h3>Q2 — Uniquement le lien actif</h3>
+      <div class="answer"><code>.main-nav ul li a.active</code></div>
+
+      <h3>Q3 — L'article avec la classe <code>featured</code></h3>
+      <div class="answer"><code>article.post.featured</code></div>
+
+      <h3>Q4 — Le premier paragraphe de chaque article</h3>
+      <div class="answer"><code>article.post p:first-of-type</code></div>
+
+      <h3>Q5 — Les éléments &lt;li&gt; pairs</h3>
+      <div class="answer"><code>.main-nav ul li:nth-child(even)</code></div>
+    </section>
+
+    <section>
+      <h2>1.2 — Spécificité</h2>
+
+      <h3>Q1 — Classement par spécificité croissante</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Ordre</th>
+            <th>Sélecteur</th>
+            <th>Spécificité (id, class, tag)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1 (la plus faible)</td><td><code>p</code></td><td>0, 0, 1</td></tr>
+          <tr><td>2</td><td><code>.text</code></td><td>0, 1, 0</td></tr>
+          <tr><td>3</td><td><code>p.text</code></td><td>0, 1, 1</td></tr>
+          <tr><td>4</td><td><code>#main</code></td><td>1, 0, 0</td></tr>
+          <tr><td>5 (la plus haute)</td><td><code>#main .text p</code></td><td>1, 1, 1</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Q2 — Si deux règles ont la même spécificité, laquelle gagne ?</h3>
+      <div class="answer">
+        La règle déclarée <strong>en dernier</strong> dans le CSS l'emporte — c'est le principe de cascade (ordre d'apparition).
+      </div>
+
+      <h3>Q3 — Pourquoi faut-il éviter <code>!important</code> ?</h3>
+      <div class="answer">
+        <code>!important</code> court-circuite toute la cascade et la spécificité, ce qui rend le CSS difficile à maintenir et à déboguer. Si plusieurs règles utilisent <code>!important</code>, elles entrent en conflit entre elles et on perd le contrôle de l'ordre de priorité.
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
